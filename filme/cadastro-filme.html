@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes</title>
+    <script src="../js/filme.js"></script>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body>
+    <h1>Cadastro de filme</h1>
+
+    <div id="campos-cadastro">
+        <span>Nome: </span> <input type="text" id="name">
+        <br>
+        <span>Duração (minutos): </span> <input type="number" id="minutes">
+        <br>
+        <span>Data de lançamento: </span> <input type="date" id="releaseDate">
+        <br>
+        <span>Gênero: </span> <select id="genre"></select>
+        <script>gerarSelectGenero()</script>
+    </div>
+    <button onclick="cadastrarFilme()">Cadastrar</button>
+
+    <a href="index-filme.html"><button>Voltar</button></a>
+</body>
+
+</html>

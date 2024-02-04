@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes</title>
+    <script>
+        async function validaToken() {
+            const token = localStorage.getItem('filmsystemJwtToken')
+
+            if (token != null) {
+                const url = 'http://localhost:8080/auth/validate'
+
+                response = await fetch(url, {
+                    method: "GET",
+                    headers: {
+                        "Authorization": `Bearer ${token}`
+                    }
+                })
+
+                if (response.status == 200) {
+                    responseBody = await response.json()
+                    userLogin = responseBody[0]
+                    userRole = responseBody[1]
+
+                    window.location.href = `inicio.html?login=${userLogin}&role=${userRole}`
+                } else {
+                    localStorage.removeItem('filmsystemJwtToken')
+                    localStorage.removeItem('filmsystemLogin')
+                    localStorage.removeItem('filmsystemRole')
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <script>
+        validaToken()
+    </script>
+
+    <h1>Sistema de Filmes</h1>
+
+    <a href="login.html"><button>Entrar</button></a>
+</body>
+
+</html>

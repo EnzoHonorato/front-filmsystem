@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Filmes</title>
+    <script src="js/usuario.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <h1>Sistema de Filmes</h1>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search)
+        const login = urlParams.get('login')
+        const role = urlParams.get('role')
+
+        const h2UsuarioLogado = document.createElement('span')
+        h2UsuarioLogado.innerText = 'USUÁRIO: ' + login
+
+        const h2RoleUsuarioLogado = document.createElement('span')
+        h2RoleUsuarioLogado.innerText = 'PERMISSÃO: ' + role
+
+        document.body.appendChild(h2UsuarioLogado)
+        document.body.appendChild(h2RoleUsuarioLogado)
+    </script>
+
+    <a href="usuario/index-usuario.html"><button>ADMIN: Controle de Usuários</button></a>
+    <br>
+    <a href="genero/index-genero.html"><button>ADMIN: Controle de Gêneros</button></a>
+    <br>
+    <a href="filme/index-filme.html"><button>ADMIN: Controle de Filmes</button></a>
+    <br>
+    <a href="lista/index-lista.html"><button>Minha lista</button></a>
+
+    <br>
+    <button onclick="logout()">Sair</button>
+</body>
+</html>
